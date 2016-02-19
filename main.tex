@@ -128,9 +128,9 @@ User has to know the names and types of leaves in the TTree to define an interfa
 \end{block}
 
 \begin{lstlisting}[language=scala]
-case class Dimuon(mass_mumu: Float, px: Float, py: Float, pz: Float) {
+case class Dimuon(mass\_mumu: Float, px: Float, py: Float, pz: Float) {
   def momentum = Math.sqrt(px*px + py*py + pz*pz)
-  def energy = Math.sqrt(mass_mumu*mass_mumu + momentum*momentum)
+  def energy = Math.sqrt(mass\_mumu*mass\_mumu + momentum*momentum)
 }
 \end{lstlisting}
 
