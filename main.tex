@@ -130,15 +130,15 @@ Interface could be auto-generated from a sample ROOT file and pasted into a user
 case class Dimuon(mass: Float, px: Float, py: Float, pz: Float)
 \end{lstlisting}
 
-\begin{minipage}{\linewidth}
-\vspace{-0.35 cm}
+\uncover<2->{\begin{minipage}{\linewidth}
+\vspace{-0.4 cm}
 \begin{lstlisting}[language=scala]
 {
   def momentum = Math.sqrt(px*px + py*py + pz*pz)
   def energy = Math.sqrt(mass*mass + momentum*momentum)
 }
 \end{lstlisting}
-\end{minipage}
+\end{minipage}}
 
 Scala case classes:
 \begin{itemize}
