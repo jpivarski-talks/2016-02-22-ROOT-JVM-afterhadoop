@@ -120,6 +120,23 @@ I have working code, but I'm rapidly swapping it out as I try new things. New {\
 \end{itemize}
 \end{frame}
 
+\begin{frame}{Scala interface}
 
+\begin{block}{}
+\vspace{-\baselineskip}
+User has to know the names and types of leaves in the TTree to define an interface. Otherwise, it can't be a first-class object with compiled field accessors. They can be auto-generated from an example ROOT file.
+\end{block}
+
+\begin{lstlisting}[language=scala]
+case class Dimuon(mass_mumu: Float, px: Float, py: Float, pz: Float) {
+  def momentum = Math.sqrt(px*px + py*py + pz*pz)
+  def energy = Math.sqrt(mass_mumu*mass_mumu + momentum*momentum)
+}
+\end{lstlisting}
+
+
+
+
+\end{frame}
 
 \end{document}
