@@ -77,11 +77,11 @@ Target use-case: help physics groups move their TTree skimming jobs to Spark.
 \item However, {\tt RootFileReader} requires a file on disk, which limits usefulness.
 \begin{itemize}
 \item No {\tt java.io.InputStream} constructor because of seeking.
-\item It has a {\tt java.net.URL} constructor, but it doesn't accept ``{\tt http://}''???
+\item {\tt java.net.URL} constructor doesn't accept ``{\tt http://}''???
 \end{itemize}
 \end{itemize}
 
-\item Native bridge
+\item Bridge to native ROOT libraries
 \begin{itemize}
 \item Java's built-in {\bf JNI} requires some care (always segmentation faults for me).
 \item {\bf JNA} library works pretty well.
@@ -93,6 +93,7 @@ Target use-case: help physics groups move their TTree skimming jobs to Spark.
 \item Newer {\bf BridJ} library might help:
 \begin{itemize}
 \item Intended for C++, maybe no need for intermediates.
+\item Richer interface for dealing with pointers; optimized for speed.
 \end{itemize}
 \end{itemize}
 \end{itemize}
