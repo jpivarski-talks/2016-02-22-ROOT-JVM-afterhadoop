@@ -165,10 +165,7 @@ case class Dimuon(mass: Float, px: Float, py: Float, pz: Float)
 Random access readers (iterators are similar):
 
 \begin{lstlisting}[language=scala]
-val dimuons1 = FreeHepRootTTreeReader[Dimuon](
-  "TrackResonanceNtuple.root", "TrackResonanceNtuple/twoMuon")
-
-val dimuons2 = NativeRootTTreeReader[Dimuon](
+val dimuons = NativeRootTTreeReader[Dimuon](
   "TrackResonanceNtuple.root", "TrackResonanceNtuple/twoMuon")
 \end{lstlisting}
 
