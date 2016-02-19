@@ -227,8 +227,11 @@ Add a {\tt rootRDD} method to {\tt SparkContext} via pimp-my-library.
 
 \begin{lstlisting}[language=scala]
 import org.dianahep.scaroot.spark._
-val inputFormat = sc.rootRDD[Dimuon](
+
+val inputRDD = sc.rootRDD[Dimuon](
   "TrackResonanceNtuple*.root", "TrackResonanceNtuple/twoMuon")
+
+inputRDD filter {case Dimuon(mass, _, _, _) => mass > 60.0} map { ... }
 \end{lstlisting}
 \end{minipage}
 
