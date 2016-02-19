@@ -254,10 +254,20 @@ Workaround: write a custom RDD class.
 \item Therefore, I want to make a native solution bug-free.
 \begin{itemize}
 \item Testing {\bf BridJ}, which is newer than {\bf JNA} and is C++-aware.
-\item {\bf JNAerator} (generates bindings for {\bf JNA}): attempt to convert ROOT's header files to Java, spent 100\% of 36 CPUS for 3 hours before giving up.
-\item Worst case: external process piping Avro data. (I've done it before.)
+\item {\bf JNAerator} generates bindings for {\bf JNA}, may be used with {\bf JNA} or {\bf BridJ}.
+\begin{itemize}
+\item Attempt to convert ROOT's header files to Java: spent 100\% of 36 CPUS for 3 hours before giving up.
+\end{itemize}
+\item Worst case: external process piping Avro data.
+\begin{itemize}
+\item I've done it before, very familiar with Avro serialization.
+\item By-product: we'd have a general purpose ROOT-to-Avro converter.
+\end{itemize}
 \end{itemize}
 
+\item Also might use {\tt TProcess::Declare} (ROOT's version of Scala macros).
+
+\item Want to include objects, possibly CMS's FWLite.
 \end{itemize}
 \end{frame}
 
