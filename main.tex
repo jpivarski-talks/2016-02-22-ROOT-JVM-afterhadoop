@@ -110,11 +110,15 @@ Most importantly, I've discovered capabilities and constraints.
 
 \begin{itemize}
 \item Built clean Scala interface to TTrees using compile-time macros (next page).
-\item 
+\item Successfully passed TTrees through Hadoop map-reduce.
+\item Successfully passed TTrees through a Spark workflow.
+\end{itemize}
 
-
-
-
+{\it However,}
+\begin{itemize}
+\item Hadoop mappers had to copy the file from HDFS to local disk before reading.
+\item Spark could only use my Hadoop InputFormat if it was precompiled in a JAR, not on the commandline (which dramatically changes Spark user experience). This is fixable.
+\item Also, Spark's Kryo serialization had to be used (not a problem: it's 10 times faster than native Java serialization).
 \end{itemize}
 \end{frame}
 
