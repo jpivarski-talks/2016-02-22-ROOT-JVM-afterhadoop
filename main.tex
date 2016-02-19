@@ -115,7 +115,7 @@ I have working code, but I'm rapidly swapping it out as I try new things. New {\
 {\it However,}
 \begin{itemize}
 \item Hadoop mappers had to copy the file from HDFS to local disk before reading (fixable).
-\item Spark could only use my Hadoop InputFormat if it was precompiled in a JAR, not on the commandline, dramatically changing Spark user experience (fixable).
+\item Spark could only use user classes if precompiled in a JAR, not given on the commandline, dramatically changing the Spark user experience (fixable).
 \item Also, Spark's Kryo serialization had to be used (not a problem: it's 10 times faster than native Java serialization).
 \end{itemize}
 \end{frame}
