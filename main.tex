@@ -181,9 +181,9 @@ Alternatives are:
 \end{frame}
 
 \begin{frame}[fragile]{Hadoop example}
+\begin{minipage}{1.1\linewidth}
 \begin{lstlisting}[language=scala]
-case class Dimuon(mass: Float, px: Float, py: Float, pz: Float)
-{
+case class Dimuon(mass: Float, px: Float, py: Float, pz: Float) {
   def momentum = Math.sqrt(px*px + py*py + pz*pz)
   def energy = Math.sqrt(mass*mass + px*px + py*py + pz*pz)
 }
@@ -191,6 +191,7 @@ class DimuonWritable extends ValueWritable[Dimuon]
 class DimuonInputFormat extends RootInputFormat[Dimuon, DimuonWritable](
   "TrackResonanceNtuple/twoMuon")
 \end{lstlisting}
+\end{minipage}
 
 Hadoop wraps objects in {\tt Writable} because it has a custom serializer. Creating a subclass invokes this macro.
 
