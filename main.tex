@@ -121,13 +121,13 @@ I have working code, but I'm rapidly swapping it out as I try new things. New {\
 \end{frame}
 
 \begin{frame}[fragile]{Scala interface}
-\begin{block}{}
-\vspace{-\baselineskip}
 User has to know the names and types of leaves in the TTree to define an interface. Otherwise, it can't be a first-class object with compiled field accessors.
 
 \vspace{0.5\baselineskip}
-Interface could be auto-generated from a sample ROOT file and pasted into a user's project. Complete example:
-\end{block}
+Interface could be auto-generated from a sample ROOT file and pasted into a user's project.
+
+\vspace{0.5\baselineskip}
+Complete example (for a CMSDAS sample file):
 
 \begin{minipage}{1.1\linewidth}
 \begin{lstlisting}[language=scala]
@@ -138,6 +138,7 @@ case class Dimuon(mass: Float, px: Float, py: Float, pz: Float) {
 \end{lstlisting}
 \end{minipage}
 
+Scala case classes:
 \begin{itemize}
 \item are immutable, lightweight data objects;
 \item have fields for each constructor argument;
@@ -145,11 +146,6 @@ case class Dimuon(mass: Float, px: Float, py: Float, pz: Float) {
 \item can be used in pattern-matching for declarative condition checking;
 \item are a common currency for Scala data transformation.
 \end{itemize}
-
-
-
-
-
 \end{frame}
 
 \end{document}
