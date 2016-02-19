@@ -221,10 +221,12 @@ case class Dimuon(mass: Float, px: Float, py: Float, pz: Float) {
   def momentum = Math.sqrt(px*px + py*py + pz*pz)
   def energy = Math.sqrt(mass*mass + px*px + py*py + pz*pz)
 }
+\end{lstlisting}
 
-// add "rootRDD" method to Spark's SparkContext
+Add a {\tt rootRDD} method to {\tt SparkContext} via pimp-my-library.
+
+\begin{lstlisting}[language=scala]
 import org.dianahep.scaroot.spark._
-
 val inputFormat = sc.rootRDD[Dimuon](
   "TrackResonanceNtuple*.root", "TrackResonanceNtuple/twoMuon")
 \end{lstlisting}
