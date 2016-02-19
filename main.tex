@@ -71,11 +71,15 @@ Target use-case: help physics groups move their TTree skimming jobs to Spark.
 \begin{frame}{Updates}
 \begin{block}{Last time, I was following two approaches:}
 \begin{itemize}
-\item FreeHEP-ROOTIO (pure-Java reimplementation of ROOT I/O)
+\item FreeHEP-ROOTIO (pure-Java reimplementation)
 \begin{itemize}
 \item Never heard back from Tony Johnson.
 \item But it works: never had any problems opening ROOT files (even old ones), and TTree interface is good.
-\item However, {\tt RootFileReader} requires a file on disk, which limits usefulness. ({\tt java.net.URL} constructor doesn't accept {\tt http://})
+\item However, {\tt RootFileReader} requires a file on disk, which limits usefulness.
+\begin{itemize}
+\item No {\tt java.io.InputStream} constructor because of seeking.
+\item It has a {\tt java.net.URL} constructor, but it doesn't accept {\tt http://}???
+\end{itemize}
 \end{itemize}
 
 \item Native bridge
