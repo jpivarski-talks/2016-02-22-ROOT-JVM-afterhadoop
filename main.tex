@@ -135,18 +135,23 @@ case class Dimuon(mass: Float, px: Float, py: Float, pz: Float) {
 \end{lstlisting}
 \end{minipage}
 
-\only<1>{Scala case classes}
-\only<1>{\begin{itemize}
+\begin{itemize}
 \item are immutable, lightweight data objects;
 \item have fields for each constructor argument;
 \item have a readable commandline representation;
 \item can be used in pattern-matching (declarative condition checking);
 \item are a common currency for many Scala data transformation tools.
-\end{itemize}}
+\end{itemize}
 
-\only<2>{\begin{lstlisting}[language=scala]
-dimuons = FreeHepRootTTreeReader[Dimuon]("TrackResonanceNtuple.root", "TrackResonanceNtuple/twoMuon")
-\end{lstlisting}}
+
+
+
+
 \end{frame}
 
 \end{document}
+
+
+%% \begin{lstlisting}[language=scala]
+%% dimuons = FreeHepRootTTreeReader[Dimuon]("TrackResonanceNtuple.root", "TrackResonanceNtuple/twoMuon")
+%% \end{lstlisting}
