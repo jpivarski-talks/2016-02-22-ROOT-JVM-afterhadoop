@@ -231,7 +231,7 @@ import org.dianahep.scaroot.spark._
 val inputRDD = sc.rootRDD[Dimuon](
   "TrackResonanceNtuple*.root", "TrackResonanceNtuple/twoMuon")
 
-inputRDD filter {case Dimuon(mass, _, _, _) => mass > 60.0} ...
+val histogram = inputRDD.filter(_.mass > 60.0).map(_.mass.toInt).countByKey()
 \end{lstlisting}
 \end{minipage}
 
