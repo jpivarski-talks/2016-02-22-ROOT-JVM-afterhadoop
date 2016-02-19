@@ -18,11 +18,6 @@
 \usepackage{listings}
 \usepackage{courier}
 
-\lstdefinestyle{base}{
-  language=scala,
-  moredelim=**[is][\only<+>{\color{red}}]{@}{@},
-}
-
 \title[2016-02-22-ROOT-JVM-afterhadoop]{Accessing ROOT from the JVM (update)}
 \author{Jim Pivarski}
 \date{2016-02-22}
@@ -41,6 +36,7 @@
   escapeinside={\%*}{*)},          % if you want to add LaTeX within your code
   keywordstyle=\color{blue},       % keyword style
   stringstyle=\color{mymauve},     % string literal style
+  moredelim=**[is][\only<+>{\color{red}}]{@}{@},
 }
 
 \begin{document}
