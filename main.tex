@@ -27,8 +27,7 @@
 \definecolor{mygray}{rgb}{0.5,0.5,0.5}
 \definecolor{mymauve}{rgb}{0.58,0,0.82}
 
-\lstset{
-  language=scala,
+\lstset{ %
   backgroundcolor=\color{white},   % choose the background color
   basicstyle=\ttfamily\scriptsize,        % size of fonts used for the code
   breaklines=true,                 % automatic line breaking only at whitespace
@@ -37,7 +36,6 @@
   escapeinside={\%*}{*)},          % if you want to add LaTeX within your code
   keywordstyle=\color{blue},       % keyword style
   stringstyle=\color{mymauve},     % string literal style
-  moredelim=**[is][\color{red}]{@}{@}
 }
 
 \begin{document}
@@ -130,11 +128,15 @@ Interface could be auto-generated from a sample ROOT file and pasted into a user
 
 \begin{lstlisting}[language=scala]
 case class Dimuon(mass: Float, px: Float, py: Float, pz: Float)
-@{@
-@  def momentum = Math.sqrt(px*px + py*py + pz*pz)@
-@  def energy = Math.sqrt(mass*mass + momentum*momentum)@
-@}@
 \end{lstlisting}
+
+{\textcolor{white}\vspace{-0.35 cm}
+\begin{lstlisting}[language=scala]
+{
+  def momentum = Math.sqrt(px*px + py*py + pz*pz)
+  def energy = Math.sqrt(mass*mass + momentum*momentum)
+}
+\end{lstlisting}}
 
 Scala case classes:
 \begin{itemize}
