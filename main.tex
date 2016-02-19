@@ -70,7 +70,7 @@ Target use-case: help physics groups move their TTree skimming jobs to Spark.
 
 \begin{frame}{Following two approaches:}
 \begin{itemize}
-\item {\bf FreeHEP-ROOTIO} (pure-Java reimplementation)
+\item<1-> {\bf FreeHEP-ROOTIO} (pure-Java reimplementation)
 \begin{itemize}
 \item Never heard back from Tony Johnson.
 \item But it works: never had any problems opening ROOT files (even old ones), and TTree interface is good.
@@ -81,7 +81,7 @@ Target use-case: help physics groups move their TTree skimming jobs to Spark.
 \end{itemize}
 \end{itemize}
 
-\item Bridge to native ROOT libraries
+\item<2> Bridge to native ROOT libraries
 \begin{itemize}
 \item Java's built-in {\bf JNI} requires some care (always segmentation faults for me).
 \item {\bf JNA} library works pretty well.
