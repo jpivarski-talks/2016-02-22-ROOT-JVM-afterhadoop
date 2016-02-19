@@ -214,7 +214,7 @@ class TestMapper extends Mapper[KeyWritable, TwoMuonWritable,
 \end{uncoverenv}
 \end{frame}
 
-\begin{frame}[fragile]{Hadoop example}
+\begin{frame}[fragile]{Spark example}
 \begin{minipage}{1.1\linewidth}
 \begin{lstlisting}[language=scala]
 case class Dimuon(mass: Float, px: Float, py: Float, pz: Float) {
@@ -239,11 +239,27 @@ val histogram = inputRDD.filter(_.mass > 60.0).map(_.mass.toInt).
 \begin{itemize}
 \item I'm internally passing my {\tt RootInputFormat} to Spark's {\tt sc.newAPIHadoopRDD}, but unfortunately this requires {\tt RootInputFormat} to have a zero-argument constructor. Scala inserts a hidden constructor argument to pass data to my macro, to overcome the JVM's type erasure.
 
-Workaround: custom RDD class.
+Workaround: write a custom RDD class.
 \item Also, Hadoop's serialization is ignored by Spark; use Kryo.
 \end{itemize}
 \end{frame}
 
+\begin{frame}{Future direction(s)}
+\begin{itemize}
+\item The pure-Java FreeHEP-ROOTIO is nice, but it can only read from a local filesystem.
+\begin{itemize}
+\item I could alter it to add support for {\tt FSDataInputStream} (HDFS) and {\bf xrootd4j}, but there's no guarantee that it will handle remote seeking efficiently.
+\end{itemize}
+
+\item Therefore, I want to make a native solution bug-free.
+\begin{itemize}
+\item Testing {\bf BridJ}, which is newer than {\bf JNA} and is C++-aware.
+\item {\bf JNAerator} (generates bindings for {\bf JNA}): attempt to convert ROOT's header files to Java, spent 100\% of 36 CPUS for 3 hours before giving up.
+\item Worst case: external process piping Avro data. (I've done it before.)
+\end{itemize}
+
+\end{itemize}
+\end{frame}
 
 
 \end{document}
