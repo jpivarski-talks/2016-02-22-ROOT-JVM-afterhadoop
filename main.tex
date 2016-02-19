@@ -192,17 +192,14 @@ class DimuonInputFormat extends RootInputFormat[Dimuon, DimuonWritable](
   "TrackResonanceNtuple/twoMuon")
 \end{lstlisting}
 
-Hadoop wraps objects in {\tt Writable} because it has a custom serializer. Here, the act of creating a subclass invokes the compile-time macro.
+Hadoop wraps objects in {\tt Writable} because it has a custom serializer. Creating a subclass invokes this macro.
 
 \begin{lstlisting}[language=scala]
 class TestMapper extends Mapper[KeyWritable, TwoMuonWritable,
                                 IntWritable, TwoMuonWritable] {
-
   override def map(key: KeyWritable, value: TwoMuonWritable, context: Context) {
-
     val KeyWritable(ttreeEntry) = key                     # defines "ttreeEntry"
     val ValueWritable(TwoMuon(mass, _, _, _)) = value     # defines "mass"
-
     context.write(new IntWritable(mass.toInt), value)
   }
 }
