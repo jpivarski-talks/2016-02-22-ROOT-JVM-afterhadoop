@@ -152,13 +152,14 @@ Complete example:
 \begin{lstlisting}[language=scala]
 case class Dimuon(mass: Float, px: Float, py: Float, pz: Float)
 \end{lstlisting}
-\uncover<2>{
+\uncover<2>{\begin{minipage}
 \begin{lstlisting}[language=scala]
 {
   def momentum = Math.sqrt(px*px + py*py + pz*pz)
   def energy = Math.sqrt(mass*mass + momentum*momentum)
 }
-\end{lstlisting}}
+\end{lstlisting}
+\end{minipage}}
 
 Random access readers (iterators are similar):
 
