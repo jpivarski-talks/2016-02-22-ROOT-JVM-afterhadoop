@@ -38,10 +38,6 @@
   stringstyle=\color{mymauve},     % string literal style
 }
 
-\lstdefinestyle{hidden}{
-  basicstyle=\color{white}
-}
-
 \begin{document}
 
 \begin{frame}
@@ -135,7 +131,7 @@ case class Dimuon(mass: Float, px: Float, py: Float, pz: Float)
 \end{lstlisting}
 
 \vspace{-0.35 cm}
-\begin{lstlisting}[language=scala, style=hidden]
+\begin{lstlisting}[language=scala]
 {
   def momentum = Math.sqrt(px*px + py*py + pz*pz)
   def energy = Math.sqrt(mass*mass + momentum*momentum)
