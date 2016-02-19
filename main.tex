@@ -188,8 +188,8 @@ case class Dimuon(mass: Float, px: Float, py: Float, pz: Float) {
   def energy = Math.sqrt(mass*mass + px*px + py*py + pz*pz)
 }
 class DimuonWritable extends ValueWritable[Dimuon]
-class DimuonInputFormat extends RootInputFormat[Dimuon, DimuonWritable](
-  "TrackResonanceNtuple/twoMuon")
+class DimuonInputFormat extends RootInputFormat[
+  Dimuon, DimuonWritable]("TrackResonanceNtuple/twoMuon")
 \end{lstlisting}
 \end{minipage}
 
