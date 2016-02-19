@@ -68,29 +68,34 @@ Target use-case: help physics groups move their TTree skimming jobs to Spark.
 \end{block}
 \end{frame}
 
-\begin{frame}{Updates}
-\begin{block}{Last time, I was following two approaches:}
+\begin{frame}{Following two approaches:}
 \begin{itemize}
-\item FreeHEP-ROOTIO (pure-Java reimplementation)
+\item {\bf FreeHEP-ROOTIO} (pure-Java reimplementation)
 \begin{itemize}
 \item Never heard back from Tony Johnson.
 \item But it works: never had any problems opening ROOT files (even old ones), and TTree interface is good.
 \item However, {\tt RootFileReader} requires a file on disk, which limits usefulness.
 \begin{itemize}
 \item No {\tt java.io.InputStream} constructor because of seeking.
-\item It has a {\tt java.net.URL} constructor, but it doesn't accept {\tt http://}???
+\item It has a {\tt java.net.URL} constructor, but it doesn't accept ``{\tt http://}''???
 \end{itemize}
 \end{itemize}
 
 \item Native bridge
-
+\begin{itemize}
+\item Java's built-in {\bf JNI} requires some care (always segmentation faults for me).
+\item {\bf JNA} library works pretty well.
+\begin{itemize}
+\item Must be adapted with intermediate C code to provide a C-like interface.
+\item Intermediate {\tt .so} file {\it can} be included in the deployed JAR.
+\item Segmentation faults rarely (and randomly). Haven't been able to find cause.
 \end{itemize}
-\end{block}
-
-
-
-
-
+\item Newer {\bf BridJ} library might help:
+\begin{itemize}
+\item Intended for C++, maybe no need for intermediates.
+\end{itemize}
+\end{itemize}
+\end{itemize}
 \end{frame}
 
 
