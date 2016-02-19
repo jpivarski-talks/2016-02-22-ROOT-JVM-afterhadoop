@@ -1,0 +1,59 @@
+\documentclass{beamer}
+
+\mode<presentation>
+{
+  \usetheme{default}      % or try Darmstadt, Madrid, Warsaw, ...
+  \usecolortheme{default} % or try albatross, beaver, crane, ...
+  \usefonttheme{default}  % or try serif, structurebold, ...
+  \setbeamertemplate{navigation symbols}{}
+  \setbeamertemplate{caption}[numbered]
+  \setbeamertemplate{footline}[frame number]
+} 
+
+\hypersetup{colorlinks=true, urlcolor=blue}
+
+\usepackage[english]{babel}
+\usepackage[utf8x]{inputenc}
+\usepackage{dirtree}
+\usepackage{listings}
+\usepackage{courier}
+
+\title[2016-02-22-ROOT-JVM-afterhadoop]{Accessing ROOT from the JVM}
+\author{Jim Pivarski}
+\date{2016-02-22}
+
+\xdefinecolor{darkblue}{rgb}{0.1,0.1,0.7}
+\definecolor{mygreen}{rgb}{0,0.6,0}
+\definecolor{mygray}{rgb}{0.5,0.5,0.5}
+\definecolor{mymauve}{rgb}{0.58,0,0.82}
+
+\lstset{ %
+  backgroundcolor=\color{white},   % choose the background color
+  basicstyle=\ttfamily\scriptsize,        % size of fonts used for the code
+  breaklines=true,                 % automatic line breaking only at whitespace
+  captionpos=b,                    % sets the caption-position to bottom
+  commentstyle=\color{mygreen},    % comment style
+  escapeinside={\%*}{*)},          % if you want to add LaTeX within your code
+  keywordstyle=\color{blue},       % keyword style
+  stringstyle=\color{mymauve},     % string literal style
+}
+
+\begin{document}
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+% Uncomment these lines for an automatically generated outline.
+%\begin{frame}{Outline}
+%  \tableofcontents
+%\end{frame}
+
+\begin{frame}{Motivation}
+\begin{block}{}
+\vspace{-\baselineskip}
+Most of the big data-pipeline frameworks used in industry run on the Java Virtual Machine (JVM); most physics data is in ROOT.
+\end{block}
+\end{frame}
+
+\end{document}
