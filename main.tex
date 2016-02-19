@@ -195,6 +195,7 @@ class DimuonInputFormat extends RootInputFormat[
 
 Hadoop wraps objects in {\tt Writables} because it has a custom serializer. Creating a subclass invokes a macro to write the serialization methods.
 
+\begin{uncoverenv}<2->
 \begin{lstlisting}[language=scala]
 class TestMapper extends Mapper[KeyWritable, TwoMuonWritable,
                                 IntWritable, TwoMuonWritable] {
@@ -210,8 +211,7 @@ class TestMapper extends Mapper[KeyWritable, TwoMuonWritable,
   }
 }
 \end{lstlisting}
-
-
+\end{uncoverenv}
 \end{frame}
 
 \end{document}
