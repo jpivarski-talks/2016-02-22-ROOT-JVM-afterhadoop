@@ -52,25 +52,18 @@
 \begin{frame}{Motivation (reminder)}
 \begin{block}{}
 \vspace{-\baselineskip}
-Most of the big data-pipeline frameworks used in industry run on the Java Virtual Machine (JVM) and most physics data is in ROOT, so we need a bridge.
+Data pipeline tools (such as Apache Hadoop, Spark, Storm, etc.) run on the Java Virtual Machine (JVM) and most physics data is in ROOT, so we need a bridge.
 \end{block}
 
 \begin{block}{}
 \vspace{-\baselineskip}
-Target use-cases:
-\begin{itemize}
-\item Access ROOT TTrees (only) in various Apache data pipeline tools (Hadoop, Spark, Storm\ldots)
-\item Allow physicists to skim/slim their group's analysis ntuples in Spark.
+Target use-case: help physics groups move their TTree skimming jobs to Spark.
 \begin{itemize}
 \item Potentially faster for iterative studies (skim, fix bug, reskim) because intermediate datasets can be cached in-memory.
 \item Abstracts away file locations and transfers, focuses on data transformations.
 \item Consolidates ad-hoc shell scripts to a single, programmable workflow.
 \item Tree of {\tt map/filter/reduce} operations can simplify scanning (parameter scans, cut scans, \ldots).
 \item May require some training to help physicists adopt the new paradigm.
-\end{itemize}
-
-
-
 \end{itemize}
 \end{block}
 
