@@ -182,10 +182,10 @@ Alternatives are:
 
 \begin{frame}[fragile]{Hadoop example}
 \begin{lstlisting}[language=scala]
-case class Dimuon(mass_mumu: Float, px: Float, py: Float, pz: Float)
+case class Dimuon(mass: Float, px: Float, py: Float, pz: Float)
 {
   def momentum = Math.sqrt(px*px + py*py + pz*pz)
-  def energy = Math.sqrt(mass_mumu*mass_mumu + px*px + py*py + pz*pz)
+  def energy = Math.sqrt(mass*mass + px*px + py*py + pz*pz)
 }
 class DimuonWritable extends ValueWritable[Dimuon]
 class DimuonInputFormat extends RootInputFormat[Dimuon, DimuonWritable](
@@ -197,9 +197,12 @@ Hadoop wraps objects in {\tt Writable} because it has a custom serializer. Creat
 \begin{lstlisting}[language=scala]
 class TestMapper extends Mapper[KeyWritable, TwoMuonWritable,
                                 IntWritable, TwoMuonWritable] {
-  override def map(key: KeyWritable, value: TwoMuonWritable, context: Context) {
-    val KeyWritable(ttreeEntry) = key                     # defines "ttreeEntry"
-    val ValueWritable(TwoMuon(mass, _, _, _)) = value     # defines "mass"
+  override def map(key: KeyWritable, value: TwoMuonWritable,
+                   context: Context) {
+    # using pattern-matching to define "ttreeEntry" and "mass":
+    val KeyWritable(ttreeEntry) = key
+    val ValueWritable(TwoMuon(mass, _, _, _)) = value
+    # passing to the reducer, keyed on binned mass
     context.write(new IntWritable(mass.toInt), value)
   }
 }
