@@ -129,9 +129,13 @@ Interface could be auto-generated from a sample ROOT file and pasted into a user
 \begin{lstlisting}[language=scala]
 case class Dimuon(mass: Float, px: Float, py: Float, pz: Float)
 \end{lstlisting}
+
+\vspace{-0.5 cm}
 \begin{lstlisting}[language=scala]
-{ def momentum = Math.sqrt(px*px + py*py + pz*pz)
-  def energy = Math.sqrt(mass*mass + momentum*momentum) }
+{
+  def momentum = Math.sqrt(px*px + py*py + pz*pz)
+  def energy = Math.sqrt(mass*mass + momentum*momentum)
+}
 \end{lstlisting}
 
 Scala case classes:
@@ -150,8 +154,10 @@ Complete example:
 
 \begin{lstlisting}[language=scala]
 case class Dimuon(mass: Float, px: Float, py: Float, pz: Float)
-{ def momentum = Math.sqrt(px*px + py*py + pz*pz)
-  def energy = Math.sqrt(mass*mass + momentum*momentum) }
+{
+  def momentum = Math.sqrt(px*px + py*py + pz*pz)
+  def energy = Math.sqrt(mass*mass + momentum*momentum)
+}
 \end{lstlisting}
 
 Random access readers (iterators are similar):
