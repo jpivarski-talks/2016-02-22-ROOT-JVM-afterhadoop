@@ -199,9 +199,11 @@ class TestMapper extends Mapper[KeyWritable, TwoMuonWritable,
                                 IntWritable, TwoMuonWritable] {
   override def map(key: KeyWritable, value: TwoMuonWritable,
                    context: Context) {
+
     # using pattern-matching to define "ttreeEntry" and "mass":
     val KeyWritable(ttreeEntry) = key
     val ValueWritable(TwoMuon(mass, _, _, _)) = value
+
     # passing to the reducer, keyed on binned mass
     context.write(new IntWritable(mass.toInt), value)
   }
