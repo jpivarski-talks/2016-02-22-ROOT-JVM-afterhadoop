@@ -214,4 +214,28 @@ class TestMapper extends Mapper[KeyWritable, TwoMuonWritable,
 \end{uncoverenv}
 \end{frame}
 
+\begin{frame}[fragile]{Hadoop example}
+\begin{minipage}{1.1\linewidth}
+\begin{lstlisting}[language=scala]
+case class Dimuon(mass: Float, px: Float, py: Float, pz: Float) {
+  def momentum = Math.sqrt(px*px + py*py + pz*pz)
+  def energy = Math.sqrt(mass*mass + px*px + py*py + pz*pz)
+}
+
+// add "rootRDD" method to Spark's SparkContext
+import org.dianahep.scaroot.spark._
+
+val inputFormat = sc.rootRDD[Dimuon](
+  "TrackResonanceNtuple*.root", "TrackResonanceNtuple/twoMuon")
+\end{lstlisting}
+\end{minipage}
+
+\begin{itemize}
+\item I'm internally passing my {\tt RootInputFormat} to Spark's {\tt sc.newAPIHadoopRDD}, but unfortunately this requires {\tt RootInputFormat} to have a zero-argument constructor. Scala inserts a hidden constructor argument to pass data to my macro, to overcome the JVM's type erasure. Workaround: custom RDD class.
+\item Also, Hadoop's serialization is ignored by Spark; need to enable Kryo.
+\end{itemize}
+\end{frame}
+
+
+
 \end{document}
