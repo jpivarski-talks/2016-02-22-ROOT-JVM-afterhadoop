@@ -162,7 +162,7 @@ case class Dimuon(mass: Float, px: Float, py: Float, pz: Float)
 }
 \end{lstlisting}
 
-Random access readers (iterators are similar):
+Random access reader (FreeHep version and iterators are similar):
 
 \begin{lstlisting}[language=scala]
 val dimuons = NativeRootTTreeReader[Dimuon](
