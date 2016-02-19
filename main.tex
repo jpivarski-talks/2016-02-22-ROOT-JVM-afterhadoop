@@ -149,14 +149,15 @@ Scala case classes:
 
 Complete example:
 
-\begin{minipage}{1.1\linewidth}
 \begin{lstlisting}[language=scala]
-case class Dimuon(mass: Float, px: Float, py: Float, pz: Float) {
+case class Dimuon(mass: Float, px: Float, py: Float, pz: Float)
+\end{lstlisting}
+\uncover<2>{\begin{lstlisting}[language=scala]
+{
   def momentum = Math.sqrt(px*px + py*py + pz*pz)
   def energy = Math.sqrt(mass*mass + momentum*momentum)
 }
-\end{lstlisting}
-\end{minipage}
+\end{lstlisting}}
 
 Random access readers (iterators are similar):
 
@@ -170,7 +171,13 @@ val dimuons2 = NativeRootTTreeReader[Dimuon](
 
 The template resolution ({\tt [Dimuon]} in Scala means {\tt <Dimuon>} in Java/C++) calls a macro that creates a custom factory for the user's {\tt Dimuon} class.
 
-
+\vspace{0.5\baselineskip}
+Alternatives in JVM are:
+\begin{itemize}
+\item runtime reflection (slower),
+\item putting all user operations in a sublanguage (like {\tt TTree::Draw} strings),
+\item requiring the user to set up boilerplate.
+\end{itemize}
 \end{frame}
 
 
