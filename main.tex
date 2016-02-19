@@ -149,15 +149,27 @@ Scala case classes:
 \end{frame}
 
 \begin{frame}[fragile]{Scala interface}
+
+\begin{minipage}{1.1\linewidth}
 \begin{lstlisting}[language=scala]
 case class Dimuon(mass: Float, px: Float, py: Float, pz: Float) {
   def momentum = Math.sqrt(px*px + py*py + pz*pz)
   def energy = Math.sqrt(mass*mass + momentum*momentum)
 }
+\end{lstlisting}
+\end{minipage}
 
-val dimuons = FreeHepRootTTreeReader[Dimuon]("TrackResonanceNtuple.root", "TrackResonanceNtuple/twoMuon")
+Random access readers (iterators are similar):
+
+\begin{lstlisting}[language=scala]
+val dimuons1 = FreeHepRootTTreeReader[Dimuon](
+  "TrackResonanceNtuple.root", "TrackResonanceNtuple/twoMuon")
+
+val dimuons2 = NativeRootTTreeReader[Dimuon](
+  "TrackResonanceNtuple.root", "TrackResonanceNtuple/twoMuon")
 \end{lstlisting}
 
+The template resolution ({\tt [Dimuon]} in Scala means {\tt <Dimuon>} in Java/C++) calls a macro that creates a custom factory for the user's {\tt Dimuon} class.
 
 
 \end{frame}
