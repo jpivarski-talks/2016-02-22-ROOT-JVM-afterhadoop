@@ -38,6 +38,10 @@
   stringstyle=\color{mymauve},     % string literal style
 }
 
+\lstdefinestyle{hidden}{
+  basicstyle=\color{white}
+}
+
 \begin{document}
 
 \begin{frame}
@@ -130,15 +134,13 @@ Interface could be auto-generated from a sample ROOT file and pasted into a user
 case class Dimuon(mass: Float, px: Float, py: Float, pz: Float)
 \end{lstlisting}
 
-\textcolor{white}{
 \vspace{-0.35 cm}
-\begin{lstlisting}[language=scala]
+\begin{lstlisting}[language=scala, style=hidden]
 {
   def momentum = Math.sqrt(px*px + py*py + pz*pz)
   def energy = Math.sqrt(mass*mass + momentum*momentum)
 }
 \end{lstlisting}
-}
 
 Scala case classes:
 \begin{itemize}
