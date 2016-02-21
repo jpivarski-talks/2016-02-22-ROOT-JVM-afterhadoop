@@ -116,7 +116,7 @@ I have working code, but I'm rapidly swapping it out as I try new things. New {\
 \begin{itemize}
 \item Hadoop mappers had to copy the file from HDFS to local disk before reading (fixable).
 \item Spark could only use the user's classes if precompiled in a JAR, not given on the commandline, dramatically changing the Spark user experience (fixable).
-\item Also, Spark's Kryo serialization had to be used (not a problem: it's 10 times faster than native Java serialization).
+\item Also, Spark's Kryo serialization had to be used (not a bad thing: it's 10 times faster than native Java serialization).
 \end{itemize}
 \end{frame}
 
