@@ -193,7 +193,7 @@ class DimuonInputFormat extends RootInputFormat[
 \end{lstlisting}
 \end{minipage}
 
-Hadoop wraps objects in {\tt Writables} because it has a custom serializer. Creating a subclass invokes a macro to write the serialization methods.
+Hadoop wraps objects in {\tt Writables} because it needs custom serialization. Creating a subclass invokes a macro to write the serialization methods.
 
 \begin{uncoverenv}<2->
 \begin{lstlisting}[language=scala]
